@@ -101,8 +101,8 @@ function draw() {
     }
   }
    else if (gameState === END) {
-         gameOver.visible = false
-    restart.visible = false
+         gameOver.visible = true;
+    restart.visible = true;
       ground.velocityX = 0;
      
      obstaclesGroup.setVelocityXEach(0);
