@@ -22,11 +22,7 @@ function preload(){
   cloudImage = loadImage("cloud.png");
   
   obstacle1 = loadImage("obstacle1.png");
-  obstacle2 = loadImage("obstacle2.png");
-  obstacle3 = loadImage("obstacle3.png");
-  obstacle4 = loadImage("obstacle4.png");
-  obstacle5 = loadImage("obstacle5.png");
-  obstacle6 = loadImage("obstacle6.png");
+  //Load the other five obstacle images
   
   
 }
@@ -49,7 +45,7 @@ function setup() {
   invisibleGround.visible = false;
   
   obstaclesGroup = createGroup();
-  cloudsGroup = createGroup();
+  //create cloudsGroup
   
   console.log("Hello" + 5);
   
@@ -60,9 +56,6 @@ function draw() {
   background(180);
   text("Score: "+ score, 500,50);
   
-  
-  
-  if(gameState === PLAY){
        
     ground.velocityX = -4;
    
@@ -86,24 +79,7 @@ function draw() {
    
     spawnObstacles();
     
-    if(obstaclesGroup.isTouching(trex)){
-        gameState = END;
-    }
-  }
-   else if (gameState === END) {
-       
-      ground.velocityX = 0;
-     
-     obstaclesGroup.setVelocityXEach(0);
-     cloudsGroup.setVelocityXEach(0);
-   }
-  
- 
-
-  trex.collide(invisibleGround);
-  
-  
-  
+   trex.collide(invisibleGround);
   drawSprites();
 }
 
@@ -112,25 +88,16 @@ function spawnObstacles(){
    var obstacle = createSprite(400,165,10,40);
    obstacle.velocityX = -6;
    
-    var rand = Math.round(random(1,6));
+    //generate random number between 1 to 6
     switch(rand) {
       case 1: obstacle.addImage(obstacle1);
               break;
-      case 2: obstacle.addImage(obstacle2);
-              break;
-      case 3: obstacle.addImage(obstacle3);
-              break;
-      case 4: obstacle.addImage(obstacle4);
-              break;
-      case 5: obstacle.addImage(obstacle5);
-              break;
-      case 6: obstacle.addImage(obstacle6);
-              break;
+      
       default: break;
     }
    
     obstacle.scale = 0.5;
-    obstacle.lifetime = 300;
+    //add lifetime to obstacle
    
     obstaclesGroup.add(obstacle);
  }
@@ -148,8 +115,8 @@ function spawnClouds() {
     
     cloud.depth = trex.depth;
     trex.depth = trex.depth + 1;
+    //add cloud in cloudsGroup
     
-   cloudsGroup.add(cloud);
     }
 }
 
