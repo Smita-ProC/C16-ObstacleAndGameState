@@ -49,7 +49,7 @@ function setup() {
   invisibleGround.visible = false;
   
   obstaclesGroup = createGroup();
-  //create cloudsGroup
+  cloudsGroup = createGroup();
   
   console.log("Hello" + 5);
   
@@ -59,7 +59,12 @@ function setup() {
 function draw() {
   background(180);
   text("Score: "+ score, 500,50);
-  
+
+  if(gameState===PLAY){
+    
+  }else if(//write condition here){
+    
+  }
        
     ground.velocityX = -4;
    
@@ -111,7 +116,7 @@ function spawnObstacles(){
     }
    
     obstacle.scale = 0.5;
-    //add lifetime to obstacle
+    obstacle.lifetime = 200
    
     obstaclesGroup.add(obstacle);
  }
@@ -129,7 +134,7 @@ function spawnClouds() {
     
     cloud.depth = trex.depth;
     trex.depth = trex.depth + 1;
-    //add cloud in cloudsGroup
+    cloudsGroup.add(cloud)
     
     }
 }
