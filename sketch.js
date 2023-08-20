@@ -22,7 +22,11 @@ function preload(){
   cloudImage = loadImage("cloud.png");
   
   obstacle1 = loadImage("obstacle1.png");
-  //Load the other five obstacle images
+  obstacle2 = loadImage("obstacle2.png");
+  obstacle3 = loadImage("obstacle3.png");
+  obstacle4 = loadImage("obstacle4.png");
+  obstacle5 = loadImage("obstacle5.png");
+  obstacle6 = loadImage("obstacle6.png");
   
   
 }
@@ -91,6 +95,16 @@ function spawnObstacles(){
     //generate random number between 1 to 6
     switch(rand) {
       case 1: obstacle.addImage(obstacle1);
+              break;
+       case 2: obstacle.addImage(obstacle2);
+              break;
+       case 3: obstacle.addImage(obstacle3);
+              break;
+         case 4: obstacle.addImage(obstacle4);
+              break;
+         case 5: obstacle.addImage(obstacle5);
+              break;
+         case 6: obstacle.addImage(obstacle6);
               break;
       
       default: break;
